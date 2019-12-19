@@ -29,6 +29,10 @@ Page {
         y: (sheight-swidth/3.6)/2 - sheight/10
         text: qsTr("Text Field")
         font.pixelSize: 36
+        color: "red"
+        //(Math.floor(Math.random()*1000))
+        //"#F0000000"
+        //Math.floor(Math.random())
     }
 
     Text {
@@ -37,6 +41,7 @@ Page {
         y: (sheight-swidth/3.6)/2 - sheight/5
         text: qsTr("Text Field")
         font.pixelSize: 24
+        color: "blue"
     }
 
     Text {
@@ -45,6 +50,7 @@ Page {
         y: (sheight-swidth/3.6)/2 - sheight/5
         text: swidth
         font.pixelSize: 24
+        color: "green"
     }
 
     Text {
@@ -53,6 +59,7 @@ Page {
         y: (sheight-swidth/3.6)/2 - sheight/5
         text: qsTr("Text Field")
         font.pixelSize: 24
+        color: "yellow"
     }
 
 
