@@ -22,7 +22,7 @@ signals:
 
 public slots:
     // Слот для приёма данных из qml-интерфейса
-    void QmlButtonClicked();
+    void qmlButtonClicked();
 
 private:
     player player0;

@@ -7,9 +7,9 @@ ApplicationWindow {
     id: window
     visible: true
     property int swidth: 0
-    property int  sheight: 0
+    property int sheight: 0
     width: swidth
-    height: sheight
+    height: sheight 
     Connections {
             target: appCore
             onSendResolution: {
@@ -17,6 +17,7 @@ ApplicationWindow {
                 sheight = height
             }
     }
+
     //title: qsTr("Stack")
 
 

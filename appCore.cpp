@@ -8,7 +8,7 @@ appCore::appCore(QObject *parent)
       player3("3", 0)
 {}
 
-void appCore::QmlButtonClicked()
+void appCore::qmlButtonClicked()
 {
     player0.incScore();
     emit sendMyScoreToQML(player0.getScore());
