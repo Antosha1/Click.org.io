@@ -13,13 +13,48 @@ Page {
         //y: 0
         //width: 200
         //height: 200
-        x:swidth/2.76
-        y:sheight/3.13
+        x:(swidth-swidth/3.6)/2
+        y:(sheight-swidth/3.6)/2
         width: swidth/3.6
-        height: sheight/8.66
+        height: swidth/3.6
         text: "+"
         font.underline: false
         font.weight: Font.Normal
         autoRepeat: false
     }
+
+    Text {
+        id: myScore
+        x: (swidth - width)/2
+        y: (sheight-swidth/3.6)/2 - sheight/10
+        text: qsTr("Text Field")
+        font.pixelSize: 36
+    }
+
+    Text {
+        id: score1
+        x: (swidth - width)/2 - swidth/5
+        y: (sheight-swidth/3.6)/2 - sheight/5
+        text: qsTr("Text Field")
+        font.pixelSize: 24
+    }
+
+    Text {
+        id: score2
+        x: (swidth - width)/2
+        y: (sheight-swidth/3.6)/2 - sheight/5
+        text: swidth
+        font.pixelSize: 24
+    }
+
+    Text {
+        id: score3
+        x: (swidth - width)/2 + swidth/5
+        y: (sheight-swidth/3.6)/2 - sheight/5
+        text: qsTr("Text Field")
+        font.pixelSize: 24
+    }
+
+
+
 }
