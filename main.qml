@@ -4,11 +4,21 @@ import QtQuick.Controls 2.5
 ApplicationWindow {
     id: window
     visible: true
-    width: 640
-    height: 480
-    title: qsTr("Stack")
+    property int swidth: 0
+    property int  sheight: 0
+    width: swidth
+    height: sheight
+    //title: qsTr("Stack")
 
-    header: ToolBar {
+    Connections {
+            target: appCore
+            onSendResolution: {
+                swidth = width
+                sheight = height
+            }
+    }
+
+    /*header: ToolBar {
         contentHeight: toolButton.implicitHeight
 
         ToolButton {
@@ -28,8 +38,8 @@ ApplicationWindow {
             text: stackView.currentItem.title
             anchors.centerIn: parent
         }
-    }
-
+    }*/
+/*
     Drawer {
         id: drawer
         width: window.width * 0.66
@@ -56,6 +66,7 @@ ApplicationWindow {
             }
         }
     }
+*/
 
     StackView {
         id: stackView

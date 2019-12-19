@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include "appCore.h"
+#include <QScreen>
 
 int main(int argc, char *argv[])
 {
@@ -10,6 +11,9 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
+    QScreen *screen = app.primaryScreen();
+    int width = screen->size().width();
+    int height = screen->size().height();
 
     QQmlApplicationEngine engine;
 
