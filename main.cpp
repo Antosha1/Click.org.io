@@ -2,7 +2,6 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include "appCore.h"
-#include <QScreen>
 
 int main(int argc, char *argv[])
 {
@@ -11,17 +10,18 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
+
+    QQmlApplicationEngine engine;
+    appCore appCore;
+
     QScreen *screen = app.primaryScreen();
     int width = screen->size().width();
     int height = screen->size().height();
 
-    QQmlApplicationEngine engine;
-
-    appCore appCore;
     QQmlContext *context = engine.rootContext();
     context->setContextProperty("appCore", &appCore);
-
     const QUrl url(QStringLiteral("qrc:/main.qml"));
+
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl){
         if (!obj && url == objUrl)
@@ -29,6 +29,8 @@ int main(int argc, char *argv[])
     }, Qt::QueuedConnection);
 
     engine.load(url);
+
+    emit appCore.sendResolution(width, height);
 
     return app.exec();
 }

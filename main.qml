@@ -1,6 +1,8 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
 
+
+
 ApplicationWindow {
     id: window
     visible: true
@@ -8,8 +10,6 @@ ApplicationWindow {
     property int  sheight: 0
     width: swidth
     height: sheight
-    //title: qsTr("Stack")
-
     Connections {
             target: appCore
             onSendResolution: {
@@ -17,6 +17,9 @@ ApplicationWindow {
                 sheight = height
             }
     }
+    //title: qsTr("Stack")
+
+
 
     /*header: ToolBar {
         contentHeight: toolButton.implicitHeight

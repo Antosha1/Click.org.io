@@ -2,16 +2,19 @@
 #define APPCORE_H
 
 #include <QObject>
+#include <QScreen>
+
 
 class appCore : public QObject
 {
     Q_OBJECT
 public:
-    explicit appCore(QObject *parent = 0);
+    appCore(QObject *parent = 0);
 
 signals:
     // Сигнал для передачи данных в qml-интерфейс
     void sendToQml(int count);
+    void sendResolution(int width, int height);
 
 public slots:
     // Слот для приёма данных из qml-интерфейса
