@@ -7,8 +7,23 @@ Page {
 
     title: qsTr("Home")
 
-    Label {
-        text: qsTr("You are on the home page.")
-        anchors.centerIn: parent
+    Rectangle {
+        id: rectangle
+        x: 200
+        y: 100
+        width: 200
+        height: 200
+        color: "#ffffff"
+        radius: 90
+        border.width: 10
+    }
+
+    RoundButton {
+        id: roundButton
+        x: 200
+        y: 100
+        width: 200
+        height: 200
+        text: "+"
     }
 }
