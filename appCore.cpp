@@ -1,17 +1,19 @@
 #include "appCore.h"
 
 appCore::appCore(QObject *parent)
-    : QObject(parent)
-{
+    : QObject(parent),
+      player0("Me", 0),
+      player1("1", 0),
+      player2("2", 0),
+      player3("3", 0)
+{}
 
-    count = 0;
+void appCore::QmlButtonClicked()
+{
+    player0.incScore();
+    emit sendMyScoreToQML(player0.getScore());
 }
 
-void appCore::receiveFromQml()
-{
-    count++;
-    emit sendToQml(count);
-}
 /*
 void appCore::sendResolution(int width, int height)
 {

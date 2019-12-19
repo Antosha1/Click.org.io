@@ -17,7 +17,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         appCore.cpp \
-        main.cpp
+        main.cpp \
+        player.cpp
 
 RESOURCES += qml.qrc
 
@@ -33,4 +34,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    appCore.h
+    appCore.h \
+    player.h
