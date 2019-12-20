@@ -33,11 +33,12 @@ Page {
         onClicked: stackView.push("StartForm.ui.qml")
     }
 
-    ProgressBar {
-        id: timeBar
+    Text {
+        id: startmessage
         x: (swidth - width)/2
-        y: timeBar.height
-        value: time
+        y: height
+        text: qsTr(" wins")
+        font.pixelSize: 36
     }
 
 }

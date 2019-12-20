@@ -68,13 +68,29 @@ ApplicationWindow {
                     drawer.close()
                 }
             }
+            ItemDelegate {
+                text: qsTr("Loading")
+                width: parent.width
+                onClicked: {
+                    stackView.push("LoadingForm.ui.qml")
+                    drawer.close()
+                }
+            }
+            ItemDelegate {
+                text: qsTr("Home")
+                width: parent.width
+                onClicked: {
+                    stackView.push("HomeForm.ui.qml")
+                    drawer.close()
+                }
+            }
         }
     }
 
 
     StackView {
         id: stackView
-        initialItem: "HomeForm.ui.qml"
+        initialItem: "StartForm.ui.qml"
         anchors.fill: parent
     }
 }

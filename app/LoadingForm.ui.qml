@@ -22,33 +22,27 @@ Page {
         y:(sheight-swidth/3.6)/2
         width: swidth/3.6
         height: swidth/3.6
-        text: "Start"
+        text: "+"
         font.underline: false
         font.weight: Font.Normal
         autoRepeat: false
         font.pixelSize: 36
-    }
-    Connections {
-        target: roundButton
-        onClicked: stackView.push("LoadingForm.ui.qml")
     }
 
     Text {
         id: startmessage
         x: (swidth - width)/2
         y: height
-        text: qsTr("Enter the nickname:3")
+        text: qsTr("Serching for losers")
         font.pixelSize: 36
     }
 
-    TextField {
-        id: nickname
-        width: startmessage.width
-        x: (swidth - width)/2
-        y: startmessage.height + nickname.height*2
-        text: qsTr("Chicken")
-        horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: 36
+    BusyIndicator {
+        id: busyIndicator
+        x: (swidth-swidth/3.6)/2
+        y: (sheight-swidth/3.6)/2
+        width: swidth/3.6
+        height: swidth/3.6
     }
 
 }
