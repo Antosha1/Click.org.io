@@ -6,8 +6,8 @@ import QtQuick.Controls 2.5
 ApplicationWindow {
     id: window
     visible: true
-    property int swidth: 0
-    property int sheight: 0
+    property int swidth: 1080
+    property int sheight: 1920
     width: swidth
     height: sheight 
     Connections {
@@ -22,7 +22,7 @@ ApplicationWindow {
 
 
 
-    /*header: ToolBar {
+    header: ToolBar {
         contentHeight: toolButton.implicitHeight
 
         ToolButton {
@@ -42,8 +42,8 @@ ApplicationWindow {
             text: stackView.currentItem.title
             anchors.centerIn: parent
         }
-    }*/
-/*
+    }
+
     Drawer {
         id: drawer
         width: window.width * 0.66
@@ -53,24 +53,24 @@ ApplicationWindow {
             anchors.fill: parent
 
             ItemDelegate {
-                text: qsTr("Page 1")
+                text: qsTr("Start")
                 width: parent.width
                 onClicked: {
-                    stackView.push("Page1Form.ui.qml")
+                    stackView.push("StartForm.ui.qml")
                     drawer.close()
                 }
             }
             ItemDelegate {
-                text: qsTr("Page 2")
+                text: qsTr("Final")
                 width: parent.width
                 onClicked: {
-                    stackView.push("Page2Form.ui.qml")
+                    stackView.push("FinalForm.ui.qml")
                     drawer.close()
                 }
             }
         }
     }
-*/
+
 
     StackView {
         id: stackView

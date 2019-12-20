@@ -96,4 +96,11 @@ Page {
         onClicked: appCore.qmlButtonClicked()
     }
 
+    ProgressBar {
+        id: timeBar
+        x: (swidth - width)/2
+        y: timeBar.height
+        value: time
+    }
+
 }
