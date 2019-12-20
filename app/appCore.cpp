@@ -14,10 +14,4 @@ void appCore::qmlButtonClicked()
     emit sendMyScoreToQML(player0.getScore());
 }
 
-/*
-void appCore::sendResolution(int width, int height)
-{
-    count++;
-    emit sendToQml(count);
-}
-*/
+
