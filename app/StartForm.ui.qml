@@ -30,7 +30,7 @@ Page {
     }
     Connections {
         target: roundButton
-        onClicked: stackView.push("HomeForm.ui.qml")
+        onClicked: stackView.push("LoadingForm.ui.qml")
     }
 
     Text {
