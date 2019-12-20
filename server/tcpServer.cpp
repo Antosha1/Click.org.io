@@ -9,7 +9,7 @@ TcpServer::TcpServer(QObject *parent) : QObject(parent), m_players(QSet<Player*>
 
     connect(m_TcpServer, &QTcpServer::newConnection, this, &TcpServer::slotNewConnection);
 
-    if(!m_TcpServer->listen(QHostAddress::Any, 12343))
+    if(!m_TcpServer->listen(QHostAddress::Any, 12345))
     {
         qDebug() << "server is not started";
     }

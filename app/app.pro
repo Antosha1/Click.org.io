@@ -18,7 +18,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         appCore.cpp \
         main.cpp \
-        player.cpp
+        player.cpp \
+        tcpClient.cpp
 
 RESOURCES += qml.qrc
 
@@ -35,4 +36,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     appCore.h \
-    player.h
+    player.h \
+    tcpClient.h
