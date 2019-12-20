@@ -25,10 +25,10 @@ public slots:
     void qmlButtonClicked();
 
 private:
-    player player0;
-    player player1;
-    player player2;
-    player player3;
+    Player player0;
+    Player player1;
+    Player player2;
+    Player player3;
 
 };
 

@@ -3,10 +3,10 @@
 
 #include<QString>
 
-class player
+class Player
 {
 public:
-    player(QString nickName, int score);
+    Player(QString nickName, int score);
     void incScore();
     void incScore(int inc);
     int getScore() const;
