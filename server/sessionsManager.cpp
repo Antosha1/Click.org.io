@@ -44,6 +44,7 @@ void SessionsManager::addSearchingPlayer(Player * player)
                 Player *currPlayer = *it;
                 it = m_waitingPlayers.erase(it);
                 session->addPlayer(currPlayer);
+                m_sessionPlayers.insert(currPlayer);
                 m_playersSession.insert(currPlayer, session);
             }
             session->startSession();

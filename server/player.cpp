@@ -25,7 +25,8 @@ void Player::slotMessageFromPlayer()
     quint8 messageType; //< The result you want
     in >> messageType;
     if (m_data.size() > 0)
-    switch (messageType)
+
+        switch (messageType)
     {
     case 0:
         searchingGame(this);

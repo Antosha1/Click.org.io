@@ -27,7 +27,7 @@ signals:
     void stopSearhingGame(Player*);
     void gotScore(Player*, int score);
     void lastScore(Player*, int score);
-    void deletePlayer(Player* Player);
+    void deletePlayer(Player* player);
 
 };
 
