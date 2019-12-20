@@ -26,6 +26,7 @@ signals:
     void searchingGame(Player*);
     void stopSearhingGame(Player*);
     void gotScore(Player*, int score);
+    void lastScore(Player*, int score);
     void deletePlayer(Player* Player);
 
 };

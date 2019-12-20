@@ -1,29 +1,33 @@
 #include "session.h"
 
 Session::Session(QObject *parent)
-    : QObject(parent)
+    : QObject(parent), m_playersStillInGame(0)
 {}
 
 void Session::playerDisconnect(Player *player)
 {
-
+    m_players.erase(m_players.find(player));
+    m_playersStillInGame--;
 }
 
 void Session::addPlayer(Player *player)
 {
     m_players.insert(player);
     m_Scores.insert(player, 0);
+    connect(player,&Player::gotScore,this,&Session::recievedScore);
+    connect(player,&Player::lastScore,this,&Session::recievedLastScore);
+    m_playersStillInGame++;
 }
 
 void Session::startSession()
 {
     char n_player = 0;
     QByteArray message (2, n_player);
-    foreach(auto player, m_players)
+    for (auto it = m_Scores.begin(); it!= m_Scores.end();++it )
     {
         message[1] = n_player;
         n_player++;
-        player->sendToPlayer(message);
+        it.key()->sendToPlayer(message);
     }
 }
 
@@ -32,12 +36,37 @@ QSet<Player *> Session::getPlayers() const
     return m_players;
 }
 
-void Session::sendCurrentScore()
+void Session::recievedScore(Player *player, int Score)
+{
+    m_Scores[player] = Score;
+    sendCurrentScore(false);
+}
+
+void Session::recievedLastScore(Player *player, int Score)
+{
+    recievedScore(player, Score);
+    m_playersStillInGame--;
+    if (m_playersStillInGame <= 0)
+    {
+        sendCurrentScore(true);
+        emit endSession(this);
+    }
+}
+
+void Session::sendCurrentScore(bool last)
 {
     QByteArray message;
     QDataStream in(&message, QIODevice::WriteOnly);
-    in.setByteOrder(QDataStream::LittleEndian); //< Set the proper byte order
-    quint8 messageType = 2; //< The result you want
+    in.setByteOrder(QDataStream::LittleEndian);
+    quint8 messageType= (last)? 3 : 2;
     in << messageType;
-
+    foreach (int score, m_Scores)
+    {
+        in<<score;
+    }
+    foreach(auto player, m_players)
+    {
+        player->sendToPlayer(message);
+    }
 }
+

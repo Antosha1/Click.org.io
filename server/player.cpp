@@ -36,6 +36,10 @@ void Player::slotMessageFromPlayer()
     case 2:
         in >> m_currScore;
         gotScore(this, m_currScore);
+        break;
+    case 3:
+        in >> m_currScore;
+        lastScore(this, m_currScore);
     }
 }
 

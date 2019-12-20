@@ -13,14 +13,21 @@ public:
     void addPlayer(Player * player);
     void startSession();
     QSet<Player *> getPlayers() const;
+
+public slots:
+    void recievedScore(Player* player, int Score);
+    void recievedLastScore(Player* player, int Score);
+
 signals:
     void endSession(Session *session);
 
 private:
-        void sendCurrentScore();
+        void sendCurrentScore(bool last);
+        void sendLastScore();
 
     QSet<Player *> m_players;
     QHash <Player*, int> m_Scores;
+    int m_playersStillInGame;
 };
 
 #endif // SESSION_H
