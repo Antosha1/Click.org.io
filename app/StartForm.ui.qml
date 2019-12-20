@@ -33,11 +33,22 @@ Page {
         onClicked: stackView.push("HomeForm.ui.qml")
     }
 
-    ProgressBar {
-        id: timeBar
+    Text {
+        id: startmessage
         x: (swidth - width)/2
-        y: timeBar.height
-        value: time
+        y: height
+        text: qsTr("Enter the nickname:3")
+        font.pixelSize: 36
+    }
+
+    TextField {
+        id: nickname
+        width: startmessage.width
+        x: (swidth - width)/2
+        y: startmessage.height + nickname.height*2
+        text: qsTr("Chicken")
+        horizontalAlignment: Text.AlignHCenter
+        font.pixelSize: 36
     }
 
 }
