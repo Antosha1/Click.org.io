@@ -28,6 +28,7 @@ signals:
     void sendPlayer3NickName(QString nickName);
     void sendWinnerNickName(QString nickName);
     void sendWinnerScore(int score);
+    void sendTime(float time);
 
 public slots:
     // Слоты для приёма данных из qml-интерфейса
@@ -38,6 +39,10 @@ public slots:
     void startSessionManager(int myNumber);
     void endSessionManager();
     void getWinner (Player winner);
+    void getTime (float time)
+    {
+        sendTime(time);
+    }
 private:
     TcpClient m_tcpClient;
     Session m_session;

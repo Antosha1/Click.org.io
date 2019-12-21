@@ -33,6 +33,9 @@ void Session::sendMyScore()
 {
     if (m_gameStarted)
     {
+        float time = sessionTime - m_mainTimer.remainingTime();
+        time/= sessionTime;
+        sendTime(time);
         m_smallTimer.start(sendingTime);
 
         QByteArray message;
