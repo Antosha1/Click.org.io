@@ -24,6 +24,7 @@ private:
 signals:
     void gameFound(qint8 myNumber);
     void gotScores(QList<int> Scores, bool last);
+    void sendServerIp(QString ipAddr);
 
 public slots:
     void slotMessageFromServer();
