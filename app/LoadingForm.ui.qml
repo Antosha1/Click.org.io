@@ -41,14 +41,14 @@ Page {
         id: startmessage
         x: (swidth - width)/2
         y: height
-        text: qsTr("Serching for losers")
+        text: qsTr("Searching for losers")
         font.pixelSize: 36
     }
 
     Text {
         id: ip1
         x: (swidth - width)/2
-        y: startmessage.height + ip1.height
+        y: startmessage.height + ip1.height*4
         property string ip: qsTr("")
         text: ip
         font.pixelSize: 24
