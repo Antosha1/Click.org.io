@@ -30,7 +30,10 @@ Page {
     }
     Connections {
         target: roundButton
-        onClicked: stackView.push("LoadingForm.ui.qml")
+        onClicked: {
+            appCore.startButtonClicked(nickname.text)
+            stackView.push("LoadingForm.ui.qml")
+        }
     }
 
     Text {

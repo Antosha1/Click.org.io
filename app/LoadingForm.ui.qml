@@ -12,6 +12,14 @@ Page {
         anchors.centerIn: parent
     }
 
+    Connections {
+            target: appCore
+            onStartSession: {
+                stackView.push("HomeForm.ui.qml")
+            }
+    }
+
+
     RoundButton {
         id: roundButton
         //x: 0
