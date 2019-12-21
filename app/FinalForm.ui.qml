@@ -34,11 +34,17 @@ Page {
     }
 
     Text {
-        id: startmessage
+        id: endmessage
         x: (swidth - width)/2
         y: height
-        text: qsTr(" wins")
+        text: winnername + qsTr(" wins")
         font.pixelSize: 36
+        Connections {
+                target: appCore
+                onSendWinnerNickName: {
+                    endmessage.winnername = nickName
+                }
+        }
     }
 
 }
