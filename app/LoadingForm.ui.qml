@@ -7,10 +7,6 @@ Page {
 
     title: qsTr("Home")
 
-    Label {
-        text: qsTr("You are on Page 1.")
-        anchors.centerIn: parent
-    }
 
     Connections {
             target: appCore

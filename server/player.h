@@ -11,6 +11,7 @@ public:
     explicit Player(QTcpSocket *socket);
     void sendToPlayer(QByteArray array);
     QByteArray getPlayerMessage();
+    QHostAddress getIp();
 
 public slots:
     void slotMessageFromPlayer();

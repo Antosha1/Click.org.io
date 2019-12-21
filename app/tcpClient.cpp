@@ -16,7 +16,7 @@ void TcpClient::sendToServer(QByteArray array)
 
 void TcpClient::connectToServer()
 {
-    m_socket.connectToHost("127.0.0.1",12345);
+    m_socket.connectToHost("10.55.131.29",12345);
 }
 
 void TcpClient::slotMessageFromServer()
@@ -40,7 +40,7 @@ void TcpClient::slotMessageFromServer()
     case 1:
         break;
     case 2:
-        while (!in.atEnd())
+        for (int i = 0; i <4; i++)
         {
             in >> score;
             Scores.append(score);
@@ -48,7 +48,7 @@ void TcpClient::slotMessageFromServer()
         gotScores(Scores, false);
         break;
     case 3:
-        while (!in.atEnd())
+        for (int i = 0; i <4; i++)
         {
             in >> score;
             Scores.append(score);

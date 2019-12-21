@@ -17,6 +17,11 @@ QByteArray Player::getPlayerMessage()
     return m_data;
 }
 
+QHostAddress Player::getIp()
+{
+    return m_socket->peerAddress();
+}
+
 void Player::slotMessageFromPlayer()
 {
     m_data = m_socket->readAll();

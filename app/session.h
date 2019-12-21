@@ -25,6 +25,7 @@ signals:
     void sendToServer(QByteArray array);
     void sendScoresToQML(int score1, int score2, int score3);
     void sendWinner (Player winner);
+    void sendTime(float time);
 
 public slots:
     void startGame(int myNumber);

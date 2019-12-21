@@ -8,6 +8,7 @@ appCore::appCore(QObject *parent)
     connect(&m_session,&Session::sendToServer,&m_tcpClient, &TcpClient::sendToServer);
     connect(&m_tcpClient, &TcpClient::gotScores,&m_session,&Session::updateScores);
     connect(&m_session,&Session::sendWinner,this, &appCore::getWinner);
+    connect(&m_session,&Session::sendTime,this, &appCore::getTime);
 
 }
 
