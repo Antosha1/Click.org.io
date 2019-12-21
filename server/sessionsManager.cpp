@@ -2,9 +2,7 @@
 
 SessionsManager::SessionsManager(QObject *parent)
     : QObject(parent)
-{
-
-}
+{}
 
 void SessionsManager::addSleepingPlayer(Player * player)
 {

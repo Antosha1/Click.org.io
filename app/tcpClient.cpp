@@ -45,7 +45,7 @@ void TcpClient::slotMessageFromServer()
             in >> score;
             Scores.append(score);
         }
-        gotScores(Scores);
+        gotScores(Scores, false);
         break;
     case 3:
         while (!in.atEnd())
@@ -53,13 +53,14 @@ void TcpClient::slotMessageFromServer()
             in >> score;
             Scores.append(score);
         }
-        lastScores(Scores);
-        }
+        gotScores(Scores, true);
+    }
 }
 
 void TcpClient::serverConnected()
 {
-
+    QByteArray message(1,0);
+    sendToServer(message);
 }
 
 void TcpClient::connectionDisplayError(QAbstractSocket::SocketError socketError)

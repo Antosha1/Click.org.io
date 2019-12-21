@@ -6,6 +6,7 @@
 #include "session.h"
 
 const int sessionsPlayersNumber = 4;
+
 class SessionsManager : public QObject
 {
     Q_OBJECT

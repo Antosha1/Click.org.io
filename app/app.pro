@@ -19,6 +19,7 @@ SOURCES += \
         appCore.cpp \
         main.cpp \
         player.cpp \
+        session.cpp \
         tcpClient.cpp
 
 RESOURCES += qml.qrc
@@ -37,4 +38,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     appCore.h \
     player.h \
+    session.h \
     tcpClient.h

@@ -6,10 +6,18 @@
 class Player
 {
 public:
-    Player(QString nickName, int score);
+    Player();
     void incScore();
-    void incScore(int inc);
+    void changeScore(int score);
     int getScore() const;
+    void setNickName(QString newName)
+    {
+        m_nickName = newName;
+    }
+    QString getNickName()
+    {
+        return m_nickName;
+    }
 private:
     QString m_nickName;
     int m_currScore;

@@ -1,7 +1,6 @@
 #include "player.h"
 
-Player::Player(QString nickName, int score)
-    : m_nickName(nickName), m_currScore(score)
+Player::Player()
 {}
 
 void Player::incScore()
@@ -9,9 +8,9 @@ void Player::incScore()
     m_currScore++;
 }
 
-void Player::incScore(int inc)
+void Player::changeScore(int score)
 {
-    m_currScore+=inc;
+    m_currScore = score;
 }
 
 int Player::getScore() const

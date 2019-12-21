@@ -3,7 +3,9 @@
 
 #include <QObject>
 #include <QScreen>
-#include "player.h"
+
+#include "tcpClient.h"
+#include "session.h"
 
 class appCore : public QObject
 {
@@ -13,22 +15,32 @@ public:
 
 signals:
     // Сигнал для передачи данных в qml-интерфейс
-    void sendStringToQML(QString string);
     void sendResolution(int width, int height);
+    void startSession();
+    void endSession();
     void sendMyScoreToQML(int score);
     void sendPlayer1ScoreToQML(int score);
     void sendPlayer2ScoreToQML(int score);
     void sendPlayer3ScoreToQML(int score);
+    void sendMyNickName(QString nickName);
+    void sendPlayer1NickName(QString nickName);
+    void sendPlayer2NickName(QString nickName);
+    void sendPlayer3NickName(QString nickName);
+    void sendWinnerNickName(QString nickName);
+    void sendWinnerScore(int score);
 
 public slots:
-    // Слот для приёма данных из qml-интерфейса
+    // Слоты для приёма данных из qml-интерфейса
     void qmlButtonClicked();
-
+    void startButtonClicked(QString nickName);
+    //C++ slots
+    void sendScoresToQML(int score1, int score2, int score3);
+    void startSessionManager(int myNumber);
+    void endSessionManager();
+    void getWinner (Player winner);
 private:
-    Player player0;
-    Player player1;
-    Player player2;
-    Player player3;
+    TcpClient m_tcpClient;
+    Session m_session;
 
 };
 
