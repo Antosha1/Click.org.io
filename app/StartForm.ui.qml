@@ -7,6 +7,15 @@ Page {
 
     title: qsTr("Home")
 
+    BorderImage {
+        id: borderImage
+        x:(swidth)/2
+        y:(sheight)/2
+        width: swidth
+        height: sheight
+        source: "qrc:backgroung.jpg"
+    }
+
     Label {
         text: qsTr("You are on Page 1.")
         anchors.centerIn: parent
@@ -53,6 +62,7 @@ Page {
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: 36
     }
+
 
 }
 

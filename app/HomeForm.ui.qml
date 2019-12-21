@@ -108,6 +108,12 @@ Page {
         x: (swidth - width)/2
         y: timeBar.height
         value: time
+        Connections {
+                target: appCore
+                onSendTime: {
+                    timeBar.time = time
+                }
+        }
     }
 
 }
