@@ -45,6 +45,22 @@ Page {
         font.pixelSize: 36
     }
 
+    Text {
+        id: ip1
+        x: (swidth - width)/2
+        y: startmessage.height + ip1.height
+        property string ip: ""
+        text: ip
+        font.pixelSize: 24
+        color: "blue"
+        Connections {
+                target: appCore
+                onSendServerIp: {
+                    ip1.ip = ipAddr
+                }
+        }
+    }
+
     BusyIndicator {
         id: busyIndicator
         x: (swidth-swidth/3.6)/2
