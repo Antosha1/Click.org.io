@@ -18,7 +18,7 @@ int Session::getMyScore()
     return m_players[0].getScore();
 }
 
-void Session::startGame(int myNumber)
+void Session::startGame(qint8 myNumber)
 {
     m_myNumber = myNumber;
     m_players[0].changeScore(0);

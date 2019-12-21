@@ -28,7 +28,7 @@ signals:
     void sendTime(float time);
 
 public slots:
-    void startGame(int myNumber);
+    void startGame(qint8 myNumber);
     void updateScores(QList<int> Scores, bool last);
 
 private slots:
@@ -39,7 +39,7 @@ private:
     QTimer m_mainTimer;
     QTimer m_smallTimer;
     bool m_gameStarted;
-    int m_myNumber;
+    qint8 m_myNumber;
     QString m_myNickName;
     Player m_players[sessionsPlayersNumber];
 };

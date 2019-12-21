@@ -9,6 +9,7 @@ appCore::appCore(QObject *parent)
     connect(&m_tcpClient, &TcpClient::gotScores,&m_session,&Session::updateScores);
     connect(&m_session,&Session::sendWinner,this, &appCore::getWinner);
     connect(&m_session,&Session::sendTime,this, &appCore::getTime);
+    connect(&m_tcpClient,&TcpClient::sendServerIp,this, &appCore::sendIp);
 
 }
 
@@ -31,7 +32,7 @@ void appCore::sendScoresToQML(int score1, int score2, int score3)
     sendPlayer3ScoreToQML(score3);
 }
 
-void appCore::startSessionManager(int myNumber)
+void appCore::startSessionManager(qint8 myNumber)
 {
     sendMyNickName("Me");
     sendPlayer1NickName("1");

@@ -13,12 +13,16 @@ public:
     void connectToServer();
     void disconnect()
     {m_socket.close();}
+    QString getServerIp()
+    {
+        return m_socket.peerAddress().toString();
+    }
 
 private:
     QTcpSocket m_socket;
     QByteArray m_data;
 signals:
-    void gameFound(int myNumber);
+    void gameFound(qint8 myNumber);
     void gotScores(QList<int> Scores, bool last);
 
 public slots:

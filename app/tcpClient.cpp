@@ -33,7 +33,7 @@ void TcpClient::slotMessageFromServer()
         switch (messageType)
     {
     case 0:
-        int myNumber;
+        qint8 myNumber;
         in >> myNumber;
         gameFound(myNumber);
         break;
@@ -61,6 +61,7 @@ void TcpClient::serverConnected()
 {
     QByteArray message(1,0);
     sendToServer(message);
+    sendServerIp(getServerIp());
 }
 
 void TcpClient::connectionDisplayError(QAbstractSocket::SocketError socketError)

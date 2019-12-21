@@ -29,16 +29,20 @@ signals:
     void sendWinnerNickName(QString nickName);
     void sendWinnerScore(int score);
     void sendTime(float time);
-
+    void sendServerIp(QString ipAddr);
 public slots:
     // Слоты для приёма данных из qml-интерфейса
     void qmlButtonClicked();
     void startButtonClicked(QString nickName);
     //C++ slots
     void sendScoresToQML(int score1, int score2, int score3);
-    void startSessionManager(int myNumber);
+    void startSessionManager(qint8 myNumber);
     void endSessionManager();
     void getWinner (Player winner);
+    void sendIp(QString ipAddr)
+    {
+        sendServerIp(ipAddr);
+    }
     void getTime (float time)
     {
         sendTime(time);
