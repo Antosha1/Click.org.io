@@ -49,7 +49,7 @@ Page {
         id: ip1
         x: (swidth - width)/2
         y: startmessage.height + ip1.height
-        property string ip: ""
+        property string ip: qsTr("")
         text: ip
         font.pixelSize: 24
         color: "blue"
