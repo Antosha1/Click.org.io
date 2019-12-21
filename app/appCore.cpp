@@ -7,6 +7,7 @@ appCore::appCore(QObject *parent)
     connect(&m_session,&Session::sendScoresToQML,this, &appCore::sendScoresToQML);
     connect(&m_session,&Session::sendToServer,&m_tcpClient, &TcpClient::sendToServer);
     connect(&m_tcpClient, &TcpClient::gotScores,&m_session,&Session::updateScores);
+    connect(&m_session,&Session::sendWinner,this, &appCore::getWinner);
 
 }
 
