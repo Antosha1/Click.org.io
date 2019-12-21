@@ -1,5 +1,5 @@
 TEMPLATE = app
-
+TARGET = Clickorgio
 QT += quick qml network
 
 CONFIG += c++11
