@@ -45,12 +45,15 @@ void Session::recievedScore(Player *player, int Score)
 void Session::recievedLastScore(Player *player, int Score)
 {
     m_Scores[player] = Score;
-    sendCurrentScore(false);
     m_playersStillInGame--;
     if (m_playersStillInGame <= 0)
     {
         sendCurrentScore(true);
         emit endSession(this);
+    }
+    else
+    {
+        sendCurrentScore(false);
     }
 }
 
@@ -61,13 +64,25 @@ void Session::sendCurrentScore(bool last)
     in.setByteOrder(QDataStream::LittleEndian);
     quint8 messageType;
     if (last)
+    {
         messageType= 3;
+    }
     else
         messageType = 2;
     in << messageType;
     foreach (int score, m_Scores)
     {
         in<<score;
+    }
+    if (last)
+    {
+        QString lastString = "last message sent";
+        foreach (int score, m_Scores)
+        {
+            lastString +=  ' ' + QString("%1").arg(score);
+        }
+
+        qDebug() << lastString;
     }
     foreach(auto player, m_players)
     {

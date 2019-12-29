@@ -24,6 +24,7 @@ void Session::startGame(qint8 myNumber)
     m_players[0].changeScore(0);
     m_gameStarted = true;
     m_mainTimer.start(sessionTime);
+    m_mainTimer.setSingleShot(true);
     m_smallTimer.start(sendingTime);
 
     //
@@ -46,7 +47,6 @@ void Session::sendMyScore()
         in<<getMyScore();
         sendToServer(message);
     }
-
 }
 
 void Session::updateScores(QList<int> Scores, bool last)
@@ -73,10 +73,11 @@ void Session::updateScores(QList<int> Scores, bool last)
 void Session::endSession()
 {
     m_gameStarted = false;
+    m_smallTimer.stop();
     QByteArray message;
     QDataStream in(&message, QIODevice::WriteOnly);
     in.setByteOrder(QDataStream::LittleEndian);
-    char messageType = 3;
+    quint8 messageType = 3;
     in << messageType;
     in<<getMyScore();
     sendToServer(message);

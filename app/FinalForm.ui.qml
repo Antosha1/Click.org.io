@@ -31,6 +31,7 @@ Page {
 
     Text {
         id: endmessage
+        property string winnername: ""
         x: (swidth - width)/2
         y: height
         text: winnername + qsTr(" wins")

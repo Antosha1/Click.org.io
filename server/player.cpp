@@ -45,6 +45,7 @@ void Player::slotMessageFromPlayer()
         break;
     case 3:
         in >> m_currScore;
+        qDebug() << "got last score " + QString("%1").arg(m_currScore);
         lastScore(this, m_currScore);
     }
 }

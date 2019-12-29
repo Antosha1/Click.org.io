@@ -16,7 +16,7 @@ void TcpClient::sendToServer(QByteArray array)
 
 void TcpClient::connectToServer()
 {
-    m_socket.connectToHost("10.55.170.133",12345);
+    m_socket.connectToHost("10.55.170.133",12345);//
 }
 
 void TcpClient::slotMessageFromServer()

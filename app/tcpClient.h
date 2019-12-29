@@ -11,8 +11,8 @@ public:
     explicit TcpClient(QObject *parent = nullptr);
     void sendToServer(QByteArray array);
     void connectToServer();
-    void disconnect()
-    {m_socket.close();}
+    void disconnectFromServer()
+    {m_socket.disconnectFromHost();}
     QString getServerIp()
     {
         return m_socket.peerAddress().toString();

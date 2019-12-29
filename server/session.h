@@ -2,6 +2,7 @@
 #define SESSION_H
 
 #include <QObject>
+#include <QDebug>
 #include "player.h"
 
 class Session : public QObject

@@ -54,6 +54,8 @@ void appCore::getWinner(Player winner)
     sendWinnerNickName(winner.getNickName());
     sendWinnerScore(winner.getScore());
     endSession();
+    m_tcpClient.disconnectFromServer();
+
 }
 
 
