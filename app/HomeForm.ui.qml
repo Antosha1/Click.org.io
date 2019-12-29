@@ -96,4 +96,25 @@ Page {
         onClicked: appCore.qmlButtonClicked()
     }
 
+    Connections {
+            target: appCore
+            onEndSession: {
+                stackView.push("FinalForm.ui.qml")
+            }
+    }
+
+    ProgressBar {
+        property real time:0
+        id: timeBar
+        x: (swidth - width)/2
+        y: timeBar.height
+        value: time
+        Connections {
+                target: appCore
+                onSendTime: {
+                    timeBar.time = time
+                }
+        }
+    }
+
 }
