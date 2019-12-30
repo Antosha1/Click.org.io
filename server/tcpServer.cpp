@@ -26,10 +26,6 @@ void TcpServer::slotNewConnection()
     connect(currPlayer, &Player::deletePlayer, this, &TcpServer::deletePlayer);
     m_manager.addSleepingPlayer(currPlayer);
     qDebug() <<currPlayer->getIp().toString() + " player connected" ;
-    foreach (auto player, m_players) {
-        player->sendToPlayer("Hello, World!!! I am echo server!\r\n");
-    }
-
 }
 
 void TcpServer::deletePlayer(Player *player)
