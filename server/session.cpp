@@ -8,6 +8,11 @@ void Session::playerDisconnect(Player *player)
 {
     m_players.erase(m_players.find(player));
     m_playersStillInGame--;
+    if (m_playersStillInGame <= 0)
+    {
+        sendCurrentScore(true);
+        emit endSession(this);
+    }
 }
 
 void Session::addPlayer(Player *player)
@@ -21,11 +26,19 @@ void Session::addPlayer(Player *player)
 
 void Session::startSession()
 {
-    char n_player = 0;
-    QByteArray message (2, n_player);
+    quint8 n_player = 0;
+    quint8 messageType = 0;
     for (auto it = m_Scores.begin(); it!= m_Scores.end();++it )
     {
-        message[1] = n_player;
+        QByteArray message;
+        QDataStream in(&message, QIODevice::WriteOnly);
+        in.setByteOrder(QDataStream::LittleEndian);
+        in << messageType;
+        in << n_player;
+        foreach(auto player, m_Scores.keys())
+        {
+            in << player->getNickName();
+        }
         n_player++;
         it.key()->sendToPlayer(message);
     }

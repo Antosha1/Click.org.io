@@ -18,10 +18,13 @@ int Session::getMyScore()
     return m_players[0].getScore();
 }
 
-void Session::startGame(qint8 myNumber)
+void Session::startGame(qint8 myNumber, QList<QString> playersNicks)
 {
     m_myNumber = myNumber;
     m_players[0].changeScore(0);
+    m_players[1].setNickName(playersNicks[0]);
+    m_players[2].setNickName(playersNicks[1]);
+    m_players[3].setNickName(playersNicks[2]);
     m_gameStarted = true;
     m_mainTimer.start(sessionTime);
     m_mainTimer.setSingleShot(true);

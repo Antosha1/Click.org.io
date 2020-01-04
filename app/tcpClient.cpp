@@ -14,9 +14,10 @@ void TcpClient::sendToServer(QByteArray array)
     m_socket.write(array);
 }
 
-void TcpClient::connectToServer()
+void TcpClient::connectToServer(QString nickName)
 {
-    m_socket.connectToHost("80.87.146.232",12345);//
+    m_nickName = nickName;
+    m_socket.connectToHost("192.168.1.12",12345);//80.87.146.232
 }
 
 void TcpClient::slotMessageFromServer()
@@ -28,14 +29,21 @@ void TcpClient::slotMessageFromServer()
     in >> messageType;
     int score;
     QList <int> Scores;
+    QString nickName;
+    QList <QString> Nicks;
     if (m_data.size() > 0)
 
-        switch (messageType)
+    switch (messageType)
     {
     case 0:
         qint8 myNumber;
         in >> myNumber;
-        gameFound(myNumber);
+        for (int i = 0; i <4; i++)
+        {
+            in >> nickName;
+            Nicks.append(nickName);
+        }
+        gameFound(myNumber, Nicks);
         break;
     case 1:
         break;
@@ -59,7 +67,12 @@ void TcpClient::slotMessageFromServer()
 
 void TcpClient::serverConnected()
 {
-    QByteArray message(1,0);
+    QByteArray message;
+    QDataStream in(&message, QIODevice::WriteOnly);
+    in.setByteOrder(QDataStream::LittleEndian);
+    quint8 messageType = 0;
+    in << messageType;
+    in << m_nickName;
     sendToServer(message);
     sendServerIp(getServerIp());
 }

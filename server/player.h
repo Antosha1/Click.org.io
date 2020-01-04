@@ -12,6 +12,8 @@ public:
     void sendToPlayer(QByteArray array);
     QByteArray getPlayerMessage();
     QHostAddress getIp();
+    QString getNickName()
+    {return m_nickName;}
 
 public slots:
     void slotMessageFromPlayer();

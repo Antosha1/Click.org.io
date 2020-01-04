@@ -36,7 +36,7 @@ public slots:
     void startButtonClicked(QString nickName);
     //C++ slots
     void sendScoresToQML(int score1, int score2, int score3);
-    void startSessionManager(qint8 myNumber);
+    void startSessionManager(qint8 myNumber, QList<QString> Nicks);
     void endSessionManager();
     void getWinner (Player winner);
     void sendIp(QString ipAddr)

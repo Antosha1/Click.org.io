@@ -34,6 +34,7 @@ void Player::slotMessageFromPlayer()
         switch (messageType)
     {
     case 0:
+        in >> m_nickName;
         searchingGame(this);
         break;
     case 1:

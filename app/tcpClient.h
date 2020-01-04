@@ -10,7 +10,7 @@ class TcpClient : public QObject
 public:
     explicit TcpClient(QObject *parent = nullptr);
     void sendToServer(QByteArray array);
-    void connectToServer();
+    void connectToServer(QString nickName);
     void disconnectFromServer()
     {m_socket.disconnectFromHost();}
     QString getServerIp()
@@ -21,8 +21,9 @@ public:
 private:
     QTcpSocket m_socket;
     QByteArray m_data;
+    QString m_nickName;
 signals:
-    void gameFound(qint8 myNumber);
+    void gameFound(qint8 myNumber, QList<QString> Nicks);
     void gotScores(QList<int> Scores, bool last);
     void sendServerIp(QString ipAddr);
 
